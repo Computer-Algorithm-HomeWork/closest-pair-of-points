@@ -1,3 +1,13 @@
+# Closest pair of Points 
+## by Jungyoon Kim
+
+분할 정복 알고리즘을 사용하여 최근접 점의 쌍 찾기 시도 했으나 실행에 실패하여 다른 방법으로 구현함.
+
+순서대로 점들 사이의 거리를 계산하고 비교하여 최단 거리가 나오는 값을 찾음.
+
+좌표: {(2,3), (7,1), (0,0), (4,8), (10,6), (-1,-1), (3,5)}
+
+```
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +21,7 @@ public class assign {
         coor p5 = new coor(10, 6);
         coor p6 = new coor(-1,-1);
         coor p7 = new coor(-3,5);
-        List<coor> list = new ArrayList<>();     //list 생성
+        List<coor> list = new ArrayList<>();     
         list.add(p1); list.add(p2); list.add(p3); list.add(p4); list.add(p5); list.add(p6); list.add(p7);
         List<coor> answer=a.closest(list);
         a.show(answer);
@@ -55,3 +65,6 @@ public class assign {
         System.out.println("최근접 쌍: (" + a.x + ", " + a.y + ") & (" + b.x + ", " + b.y + ")");
     }
 }
+```
+
+===> 최근접 쌍: (0,0) & (-1,-1)
