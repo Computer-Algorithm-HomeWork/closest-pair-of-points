@@ -1,7 +1,8 @@
 import java.util.*;
 
-public class report {
+public class Cosest {
     static Point p[];
+    static Point a[];
     static class Point {
         int x,y;
         Point( int x, int y ) {
@@ -17,26 +18,119 @@ public class report {
 
     static int bruteForce( int left, int right ) {
         int min = Integer.MAX_VALUE;
+        int h=0;
         for( int i = left; i < right; i++ ) {
             for( int j = i+1; j <= right; j++ ) {
                 int d = Distance( p[i], p[j] );
-                if( min > d ) min = d;
+                int l = fpoint1( p[i], p[j] );
+                if( min > d )
+                {
+                    min = d;
+                    h=l;
+                }
             }
         }
-        return min;
+        return h;
     }
 
-    static int div( int left, int right ) {
+    static int bruteForce1( int left, int right ) {
+        int min = Integer.MAX_VALUE;
+        int h=0;
+        for( int i = left; i < right; i++ ) {
+            for( int j = i+1; j <= right; j++ ) {
+                int d = Distance( p[i], p[j] );
+                int l = fpoint1( p[i], p[j] );
+                if( min > d )
+                {
+                    min = d;
+                    h=l;
+                }
+            }
+        }
+        return h;
+    }
+
+    static int bruteForce2( int left, int right ) {
+        int lmin = Integer.MAX_VALUE;
+        int h=0;
+        for( int i = left; i < right; i++ ) {
+            for( int j = i+1; j <= right; j++ ) {
+                int d = Distance( p[i], p[j] );
+                int l = fpoint2( p[i], p[j] );
+                if( lmin > d )
+                {
+                    lmin = d;
+                    h=l;
+                }
+            }
+        }
+        return h;
+    }
+
+    static int bruteForce3( int left, int right ) {
+        int qmin = Integer.MAX_VALUE;
+        int h=0;
+        for( int i = left; i < right; i++ ) {
+            for( int j = i+1; j <= right; j++ ) {
+                int d = Distance( p[i], p[j] );
+                int l = fpoint3( p[i], p[j] );
+                if( qmin > d )
+                {
+                    qmin = d;
+                    h=l;
+                }
+            }
+        }
+        return h;
+    }
+
+    static int bruteForce4( int left, int right ) {
+        int lmin = Integer.MAX_VALUE;
+        int h=0;
+        for( int i = left; i < right; i++ ) {
+            for( int j = i+1; j <= right; j++ ) {
+                int d = Distance( p[i], p[j] );
+                int l = fpoint4( p[i], p[j] );
+                if( lmin > d )
+                {
+                    lmin = d;
+                    h=l;
+                }
+            }
+        }
+        return h;
+    }
+
+    static int fpoint1(Point p1, Point p2) {
+        int o=p1.x;
+        return o;
+    }
+
+    static int fpoint2(Point p1, Point p2) {
+        int o=p1.y;
+        return o;
+    }
+
+    static int fpoint3(Point p1, Point p2) {
+        int o=p2.x;
+        return o;
+    }
+
+    static int fpoint4(Point p1, Point p2) {
+        int o=p2.y;
+        return o;
+    }
+
+    static int divCon( int left, int right ) {
 
         int size = right - left + 1;
         if( size <= 3 )
             return bruteForce( left, right );
-
         int mid = ( left + right ) / 2;
-        int dleft = div( left, mid );
-        int dright = div( mid+1, right );
+        int d_s_left = divCon( left, mid );
+        int d_s_right = divCon( mid+1, right );
 
-        int d_min = Math.min( dleft, dright );
+        int d_min = Math.min( d_s_left, d_s_right );
 
         List<Point> s_mid = new ArrayList<>();
         for( int i = left; i <= right; i++ ) {
@@ -64,14 +158,19 @@ public class report {
 
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        double o=0;
         p = new Point[n];
         for( int i = 0; i < n; i++ )
             p[i] = new Point( sc.nextInt(), sc.nextInt() );
 
+
         Arrays.sort( p, ( p1,p2 ) -> p1.x - p2.x );
-        o=div( 0, n-1 );
-        System.out.println( Math.sqrt(o));
+
+        int size = n;
+        if( size <= 3 ) {
+            System.out.print("(" + bruteForce1(0, n-1) + "," + bruteForce2(0, n-1) + ")");
+            System.out.println(", " + "(" + bruteForce3(0, n-1) + "," + bruteForce4(0, n-1) + ")");
+        }
+        System.out.println( divCon( 0, n-1 ) );
         sc.close();
     }
 }
