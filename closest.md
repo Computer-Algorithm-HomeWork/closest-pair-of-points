@@ -5,6 +5,7 @@ ex)n=3 (3,3),(4,5),(6,6)일때
 결과 : (3,3),(4,5)  ,3  (거리는 제곱된 상태로 출력합니다.)
 
 ,,,
+
 import java.util.*;
 
 public class Cosest {
