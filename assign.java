@@ -4,13 +4,7 @@ import java.util.List;
 public class assign {
     public static void main (String[] args) {
         assign m = new assign();
-        coor p1 = new coor(2, 3);
-        coor p2 = new coor(7, 1);
-        coor p3 = new coor(0, 0);
-        coor p4 = new coor(4, 8);
-        coor p5 = new coor(10, 6);
-        coor p6 = new coor(-1,-1);
-        coor p7 = new coor(-3,5);
+        coor p1 = new coor(2, 3); coor p2 = new coor(7, 1); coor p3 = new coor(0, 0); coor p4 = new coor(4, 8); coor p5 = new coor(10, 6); coor p6 = new coor(-1,-1); coor p7 = new coor(-3,5);
         List<coor> list = new ArrayList<>();
         list.add(p1); list.add(p2); list.add(p3); list.add(p4); list.add(p5); list.add(p6); list.add(p7);
         List<coor> answer=m.closest(list);
