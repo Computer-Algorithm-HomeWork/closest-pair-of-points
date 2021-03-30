@@ -1,5 +1,7 @@
 # closest-pair-of-points
-컴퓨터 알고리즘 4주차 팀과제
+##컴퓨터 알고리즘 4주차 팀과제
+
+###주요 소스코드 설명
 
 **1. 분할정복을 이용한 최근접쌍 찾기**
 ~~~ Scanner sc = new Scanner(System.in);
@@ -72,7 +74,7 @@ for(int i=0;i<n;i++){
 
 
 
-3. bluteForce(완전 탐색)를 이용하여 최근접쌍 찾기
+**3. bluteForce(완전 탐색)를 이용하여 최근접쌍 찾기**
 ~~~
 static int Distance( Point p1, Point p2 )
     {
