@@ -101,4 +101,4 @@ static int Distance( Point p1, Point p2 )
             System.out.println(", " + "(" + bruteForce3(0, n-1) + "," + bruteForce4(0, n-1) + ")"); // 점 개수 입력
 ~~~
 ---
-1번 소스코드는 assign.md , 2번 소스코드는 ClosetPair.txt, 3번 소스코드는 closest.md에 구현되어 있습니다.
+1번 소스코드는 assign.md , 2번 소스코드는 ClosestPair.txt, 3번 소스코드는 closest.md에 구현되어 있습니다.
